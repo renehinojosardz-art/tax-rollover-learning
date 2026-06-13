@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entity Transaction Map</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18212f;
+      --muted: #5e6878;
+      --line: #d9dee7;
+      --paper: #ffffff;
+      --wash: #f6f7f9;
+      --accent: #0f766e;
+      --warn: #9a3412;
+      --blue: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--wash);
+      line-height: 1.5;
+    }
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 42px 24px 56px;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+    h1 { font-size: 34px; line-height: 1.1; margin: 0 0 8px; letter-spacing: 0; }
+    h2 { font-size: 20px; margin: 30px 0 10px; }
+    p { margin: 0 0 14px; }
+    a { color: var(--blue); }
+    .lede { color: var(--muted); max-width: 760px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 180px;
+    }
+    .tile h3 { margin: 0 0 8px; font-size: 17px; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 2px 9px;
+      margin-bottom: 10px;
+    }
+    .tag.warn { background: var(--warn); }
+    ul { padding-left: 20px; margin: 8px 0 0; }
+    li { margin: 6px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #eef2f7; }
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      background: #ecfdf5;
+      margin-top: 18px;
+    }
+    @media (max-width: 760px) {
+      main { padding: 28px 16px 40px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+    @media print {
+      body { background: #fff; }
+      main { padding: 0; max-width: none; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Entity Transaction Map</h1>
+  <p class="lede">Use this quick map before analyzing tax consequences. The first skill is classification: what transaction bucket are you in?</p>
+
+  <section class="grid" aria-label="transaction buckets">
+    <article class="tile">
+      <span class="tag">LLC</span>
+      <h3>LLC contribution</h3>
+      <p>A member contributes cash, property, services, or an obligation to an LLC. For federal tax, first ask how the LLC is classified: disregarded entity, partnership, or corporation.</p>
+      <ul>
+        <li>Default domestic single-member LLC: disregarded.</li>
+        <li>Default domestic multi-member LLC: partnership.</li>
+        <li>Election can make an eligible LLC taxable as a corporation.</li>
+      </ul>
+    </article>
+
+    <article class="tile">
+      <span class="tag">C-corp</span>
+      <h3>Section 351 contribution</h3>
+      <p>One or more persons transfer property to a corporation solely for stock and control the corporation immediately after the exchange.</p>
+      <ul>
+        <li>Core question: property for stock?</li>
+        <li>Control cross-reference: section 368(c).</li>
+        <li>Watch boot, liabilities, services, and disproportionate issuances.</li>
+      </ul>
+    </article>
+
+    <article class="tile">
+      <span class="tag warn">Conversion</span>
+      <h3>Check-the-box change</h3>
+      <p>An eligible entity changes federal tax classification. The regulations often treat the change as a deemed contribution, liquidation, or both.</p>
+      <ul>
+        <li>Partnership to corporation: assets and liabilities deemed contributed to a corporation for stock, then partnership liquidates.</li>
+        <li>Disregarded entity to corporation: owner deemed to contribute assets and liabilities for stock.</li>
+      </ul>
+    </article>
+
+    <article class="tile">
+      <span class="tag warn">Reorg</span>
+      <h3>Section 368 reorganization</h3>
+      <p>A corporation-level restructuring that must fit a statutory reorganization type, such as a merger, stock acquisition, asset acquisition, recapitalization, or change in identity, form, or place.</p>
+      <ul>
+        <li>Start with the lettered type: A, B, C, D, E, F, or G.</li>
+        <li>Then test consideration, continuity, plan, and distribution mechanics.</li>
+      </ul>
+    </article>
+  </section>
+
+  <h2>First-pass questions</h2>
+  <table>
+    <thead>
+      <tr><th>Question</th><th>Why it matters</th><th>Primary source</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>What is the entity's federal tax classification before and after?</td>
+        <td>Legal form and tax classification can diverge, especially for LLCs.</td>
+        <td><a href="https://www.irs.gov/publications/p3402">IRS Pub. 3402</a>; <a href="https://www.law.cornell.edu/cfr/text/26/301.7701-3">26 C.F.R. 301.7701-3</a></td>
+      </tr>
+      <tr>
+        <td>Is property moving to a corporation in exchange for stock?</td>
+        <td>This is the entry point for section 351 nonrecognition analysis.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/351">26 U.S.C. 351</a></td>
+      </tr>
+      <tr>
+        <td>Are assets, stock, liabilities, or cash also moving?</td>
+        <td>Boot, liabilities, and mixed consideration can change recognition and basis.</td>
+        <td><a href="https://www.irs.gov/publications/p542">IRS Pub. 542</a></td>
+      </tr>
+      <tr>
+        <td>Does the transaction claim to be a reorganization?</td>
+        <td>A reorg is not just any restructuring; it must fit a statutory type and related requirements.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/368">26 U.S.C. 368</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <strong>Rule of thumb:</strong> classify the entity first, then classify the transaction. Many mistakes come from treating an LLC as if its legal form alone tells you the federal tax result.
+  </div>
+</main>
+</body>
+</html>

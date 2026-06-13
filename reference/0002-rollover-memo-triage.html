@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rollover Memo Triage</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --paper: #ffffff;
+      --wash: #f5f6f8;
+      --line: #d9dee7;
+      --green: #0f766e;
+      --blue: #1d4ed8;
+      --amber: #92400e;
+      --red: #991b1b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--wash);
+      line-height: 1.5;
+    }
+    main {
+      max-width: 980px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 42px 24px 56px;
+      background: var(--paper);
+    }
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 28px 0 10px; font-size: 20px; }
+    p { margin: 0 0 14px; }
+    a { color: var(--blue); }
+    .lede { color: var(--muted); max-width: 760px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 22px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: #eef2f7; }
+    .chips {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 22px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px;
+      min-height: 104px;
+    }
+    .chip strong { display: block; color: var(--green); margin-bottom: 6px; }
+    .warning {
+      border-left: 4px solid var(--amber);
+      background: #fffbeb;
+      padding: 12px 14px;
+      margin-top: 18px;
+    }
+    ol { padding-left: 22px; }
+    li { margin: 7px 0; }
+    code {
+      background: #eef2f7;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+    @media (max-width: 840px) {
+      main { padding: 28px 16px 42px; }
+      h1 { font-size: 28px; }
+      .chips { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: #fff; }
+      main { padding: 0; max-width: none; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Rollover Memo Triage</h1>
+  <p class="lede">Use this before drafting. The goal is not to reach a final tax conclusion; it is to classify the rollover and identify the memo questions that control the analysis.</p>
+
+  <section class="chips" aria-label="rollover buckets">
+    <article class="chip">
+      <strong>Section 721</strong>
+      Property goes to a partnership or LLC taxed as a partnership in exchange for a partnership interest.
+    </article>
+    <article class="chip">
+      <strong>Section 351</strong>
+      Property goes to a corporation solely for stock, and the transferor group controls the corporation immediately after.
+    </article>
+    <article class="chip">
+      <strong>Section 368(a)(1)(F)</strong>
+      A corporation changes identity, form, or place of organization without changing the corporate taxpayer in substance.
+    </article>
+    <article class="chip">
+      <strong>Taxable sale plus rollover</strong>
+      A seller cashes out part of its position and rolls part into buyer equity or a holding vehicle.
+    </article>
+  </section>
+
+  <h2>Memo Triage Table</h2>
+  <table>
+    <thead>
+      <tr><th>Question</th><th>Drafting purpose</th><th>Authorities to pull</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>What entity receives the rollover property?</td>
+        <td>Separates partnership contribution analysis from corporate contribution or reorganization analysis.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/721">section 721</a>; <a href="https://www.law.cornell.edu/uscode/text/26/351">section 351</a></td>
+      </tr>
+      <tr>
+        <td>What is transferred: assets, equity, partnership interests, real estate, or cash?</td>
+        <td>Determines whether the contribution is property, whether look-through concerns exist, and whether built-in gain needs tracking.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/704">section 704(c)</a>; <a href="https://www.irs.gov/publications/p541">IRS Pub. 541</a></td>
+      </tr>
+      <tr>
+        <td>What does the rollover party receive back?</td>
+        <td>Stock, partnership interests, cash, notes, or other property can change recognition and memo posture.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/351">section 351(b)</a>; <a href="https://www.law.cornell.edu/uscode/text/26/731">section 731</a></td>
+      </tr>
+      <tr>
+        <td>Do liabilities shift?</td>
+        <td>Liability assumptions can be treated as money contributions or distributions and may create gain or disguised-sale concerns.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/752">section 752</a>; <a href="https://www.law.cornell.edu/uscode/text/26/707">section 707</a></td>
+      </tr>
+      <tr>
+        <td>Is there a pre-closing F reorg or recap?</td>
+        <td>Determines whether the memo must analyze reorganization qualification before the sale or rollover step.</td>
+        <td><a href="https://www.law.cornell.edu/uscode/text/26/368">section 368(a)(1)(F)</a>; <a href="https://www.law.cornell.edu/cfr/text/26/1.368-2">Treas. Reg. 1.368-2</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Memo Paragraph Skeleton</h2>
+  <ol>
+    <li><strong>Classification:</strong> "The rollover appears to be best analyzed as..."</li>
+    <li><strong>Mechanics:</strong> "The intended tax mechanics are..."</li>
+    <li><strong>Authorities:</strong> "The principal authorities are..."</li>
+    <li><strong>Assumptions:</strong> "This conclusion assumes..."</li>
+    <li><strong>Risks:</strong> "The main diligence points are..."</li>
+  </ol>
+
+  <div class="warning">
+    <strong>Drafting discipline:</strong> Do not call a rollover "tax-free" in a memo until you state the bucket, the consideration received, the liability treatment, and the open diligence assumptions.
+  </div>
+</main>
+</body>
+</html>

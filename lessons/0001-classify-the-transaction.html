@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 0001: Classify the Transaction</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #657184;
+      --paper: #ffffff;
+      --wash: #f4f6f8;
+      --line: #d8dee8;
+      --accent: #0f766e;
+      --accent-weak: #e6fffa;
+      --blue: #1d4ed8;
+      --red: #b42318;
+      --green: #047857;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--wash);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    main {
+      max-width: 940px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 42px 24px 64px;
+      background: var(--paper);
+    }
+    h1 { margin: 0 0 8px; font-size: 36px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 22px; }
+    h3 { margin: 18px 0 8px; font-size: 18px; }
+    p { margin: 0 0 14px; }
+    a { color: var(--blue); }
+    .meta { color: var(--muted); margin-bottom: 22px; }
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-weak);
+      padding: 13px 15px;
+      margin: 18px 0;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 150px;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .quiz {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 6px 6px 0 0;
+      font: inherit;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    .answer {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      min-height: 52px;
+    }
+    .good { color: var(--green); font-weight: 700; }
+    .bad { color: var(--red); font-weight: 700; }
+    code {
+      background: #eef2f7;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-size: 0.95em;
+    }
+    ul { padding-left: 21px; }
+    li { margin: 7px 0; }
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    @media (max-width: 760px) {
+      main { padding: 28px 16px 44px; }
+      h1 { font-size: 29px; }
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Classify the Transaction First</h1>
+  <p class="meta">Lesson 0001 · LLC and C-corp contributions and reorgs</p>
+
+  <p>This first lesson teaches one skill: before asking whether gain is recognized, identify the entity's tax classification and the transaction bucket.</p>
+
+  <div class="callout">
+    <strong>The core move:</strong> Do not start with "LLC versus corporation" as legal labels. Start with federal tax classification, then ask what moved and what was received back.
+  </div>
+
+  <h2>The three-step scan</h2>
+  <section class="steps" aria-label="three step scan">
+    <article class="step">
+      <strong>1. Classify the entity</strong>
+      Is the LLC disregarded, a partnership, or taxed as a corporation? A domestic LLC's default classification depends on the number of members unless it elects corporation treatment. Source: <a href="https://www.irs.gov/publications/p3402">IRS Pub. 3402</a>.
+    </article>
+    <article class="step">
+      <strong>2. Track what moved</strong>
+      Cash, appreciated property, liabilities, services, assets, stock, or mixed consideration can point to different rules and different issues.
+    </article>
+    <article class="step">
+      <strong>3. Pick the bucket</strong>
+      Use the closest tax bucket: partnership/LLC contribution, section 351 contribution, check-the-box classification change, or section 368 reorganization.
+    </article>
+  </section>
+
+  <h2>The four buckets</h2>
+
+  <h3>LLC contribution</h3>
+  <p>An LLC contribution is not a complete tax description until you know how the LLC is classified. A multi-member domestic LLC that does not elect otherwise is generally treated as a partnership for federal income tax purposes. Sources: <a href="https://www.irs.gov/publications/p541">IRS Pub. 541</a> and <a href="https://www.irs.gov/businesses/small-businesses-self-employed/limited-liability-company-possible-repercussions">IRS LLC classification guidance</a>.</p>
+
+  <h3>Section 351 contribution to a C-corp</h3>
+  <p>Section 351 is the starting point when property is transferred to a corporation solely in exchange for stock and the transferor group controls the corporation immediately after the exchange. Source: <a href="https://www.law.cornell.edu/uscode/text/26/351">26 U.S.C. 351</a>.</p>
+
+  <h3>Check-the-box conversion</h3>
+  <p>When an eligible entity changes classification, tax law supplies deemed steps. For example, a partnership electing corporation status is deemed to contribute assets and liabilities to a corporation for stock, then distribute that stock in liquidation. Sources: <a href="https://www.law.cornell.edu/cfr/text/26/301.7701-3">26 C.F.R. 301.7701-3</a> and the <a href="https://www.irs.gov/pub/fatca/int_practice_units/ore_c_19_02_01.pdf">IRS check-the-box practice unit</a>.</p>
+
+  <h3>Section 368 reorganization</h3>
+  <p>A reorganization is not a generic restructuring label. Section 368 defines specific reorganization types, including statutory mergers, stock acquisitions, asset acquisitions, recapitalizations, and changes in identity, form, or place. Source: <a href="https://www.law.cornell.edu/uscode/text/26/368">26 U.S.C. 368</a>.</p>
+
+  <h2>Practice</h2>
+  <p>Pick the best first bucket. This is about classification, not the final tax answer.</p>
+
+  <section class="quiz">
+    <p><strong>Scenario:</strong> Two founders hold membership interests in a domestic LLC taxed as a partnership. They file an entity classification election so the LLC will be treated as a corporation for federal tax purposes. After the election, they own stock in the corporation in the same proportions.</p>
+    <button type="button" data-answer="bad">LLC contribution only</button>
+    <button type="button" data-answer="good">Check-the-box conversion</button>
+    <button type="button" data-answer="bad">Section 368 merger</button>
+    <div id="feedback" class="answer">Choose an answer.</div>
+  </section>
+
+  <h2>What to say out loud</h2>
+  <p>For the practice scenario, a strong first-pass answer is:</p>
+  <div class="callout">
+    The legal entity is an LLC, but the key tax event is a classification change. I would analyze the deemed steps under <code>26 C.F.R. 301.7701-3(g)</code>: the partnership is treated as contributing assets and liabilities to a corporation for stock, then liquidating by distributing the stock to the partners. Then I would ask whether section 351 and liability rules affect recognition and basis.
+  </div>
+
+  <h2>Next lesson options</h2>
+  <ul>
+    <li>Section 351: property, stock, control, boot, and liabilities.</li>
+    <li>LLC taxed as partnership: capital accounts, outside basis, and contributed property.</li>
+    <li>Section 368: how to tell A, B, C, D, E, F, and G reorganizations apart.</li>
+  </ul>
+
+  <footer>
+    Reference sheet: <a href="../reference/0001-entity-transaction-map.html">Entity Transaction Map</a>. Ask Codex follow-up questions about any step that is unclear, especially if you want examples based on a specific transaction diagram.
+  </footer>
+</main>
+<script>
+  const feedback = document.querySelector('#feedback');
+  document.querySelectorAll('button[data-answer]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.dataset.answer === 'good') {
+        feedback.innerHTML = '<span class="good">Correct.</span> This is first a check-the-box conversion. The regulations supply deemed contribution and liquidation steps, which then point you toward section 351-style questions.';
+      } else {
+        feedback.innerHTML = '<span class="bad">Not the best first bucket.</span> The entity is legally an LLC, but the tax event described is a classification election with deemed steps under the check-the-box regulations.';
+      }
+    });
+  });
+</script>
+</body>
+</html>

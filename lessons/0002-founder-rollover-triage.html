@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 0002: Founder Rollover Triage</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #657184;
+      --paper: #ffffff;
+      --wash: #f4f6f8;
+      --line: #d9dee7;
+      --green: #0f766e;
+      --blue: #1d4ed8;
+      --red: #b42318;
+      --amber: #92400e;
+      --soft: #ecfdf5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--wash);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 42px 24px 64px;
+      background: var(--paper);
+    }
+    h1 { margin: 0 0 8px; font-size: 36px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 32px 0 12px; font-size: 22px; }
+    h3 { margin: 20px 0 8px; font-size: 18px; }
+    p { margin: 0 0 14px; }
+    a { color: var(--blue); }
+    .meta { color: var(--muted); margin-bottom: 22px; }
+    .callout {
+      border-left: 4px solid var(--green);
+      background: var(--soft);
+      padding: 13px 15px;
+      margin: 18px 0;
+    }
+    .warning {
+      border-left: 4px solid var(--amber);
+      background: #fffbeb;
+      padding: 13px 15px;
+      margin: 18px 0;
+    }
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 94px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #fff;
+      font-weight: 700;
+    }
+    .arrow {
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px;
+      min-height: 170px;
+    }
+    .card strong { color: var(--green); }
+    ul, ol { padding-left: 22px; }
+    li { margin: 7px 0; }
+    .quiz {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 6px 6px 0 0;
+      font: inherit;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--green); }
+    .answer {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      min-height: 52px;
+    }
+    .good { color: #047857; font-weight: 700; }
+    .bad { color: var(--red); font-weight: 700; }
+    code {
+      background: #eef2f7;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-size: 0.95em;
+    }
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    @media (max-width: 780px) {
+      main { padding: 28px 16px 44px; }
+      h1 { font-size: 29px; }
+      .diagram, .grid { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Founder Rollover Triage</h1>
+  <p class="meta">Lesson 0002 · M&A rollover and contribution memo drafting</p>
+
+  <p>This lesson teaches one memo skill: classify a founder rollover before calling it tax-free. Your first draft should identify the bucket, not just describe the economics.</p>
+
+  <div class="callout">
+    <strong>Skill target:</strong> Given a short rollover fact pattern, write the first five sentences of a tax-structure memo: classification, intended mechanics, principal authorities, assumptions, and diligence risks.
+  </div>
+
+  <h2>Working Scenario</h2>
+  <p>Founder owns target equity. Buyer wants Founder to sell 70% for cash and roll 30% into the buyer-side platform. The platform may be a partnership/LLC, a corporation, or a newly formed holding structure.</p>
+
+  <section class="diagram" aria-label="rollover diagram">
+    <div class="box">Founder</div>
+    <div class="arrow">sells 70%</div>
+    <div class="box">Buyer</div>
+    <div class="arrow">rolls 30%</div>
+    <div class="box">Holdco / Platform</div>
+  </section>
+
+  <h2>The First Distinction</h2>
+  <p>Ask what the rollover equity is going into. That answer usually sends the memo to one of two first-order regimes:</p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>Partnership-side rollover</h3>
+      <p><strong>Likely starting point:</strong> section 721.</p>
+      <p>Section 721 generally provides nonrecognition when property is contributed to a partnership in exchange for a partnership interest. In M&A, the danger is that the step may not be a clean contribution if cash, debt shifts, distributions, or side payments are part of the same plan.</p>
+      <p>Pull: <a href="https://www.law.cornell.edu/uscode/text/26/721">section 721</a>, <a href="https://www.law.cornell.edu/uscode/text/26/707">section 707</a>, <a href="https://www.law.cornell.edu/uscode/text/26/752">section 752</a>, <a href="https://www.irs.gov/publications/p541">IRS Pub. 541</a>.</p>
+    </article>
+
+    <article class="card">
+      <h3>Corporate-side rollover</h3>
+      <p><strong>Likely starting point:</strong> section 351 or section 368.</p>
+      <p>Section 351 generally covers property transferred to a corporation solely for stock when the transferor group controls the corporation immediately after. A C-corp recap or Type F reorg may require separate section 368 analysis before the sale or rollover step.</p>
+      <p>Pull: <a href="https://www.law.cornell.edu/uscode/text/26/351">section 351</a>, <a href="https://www.law.cornell.edu/uscode/text/26/368">section 368</a>, <a href="https://www.law.cornell.edu/cfr/text/26/1.368-2">Treas. Reg. 1.368-2</a>.</p>
+    </article>
+  </div>
+
+  <h2>Memo Drafting Move</h2>
+  <p>For a first-pass memo, do not write "Founder rolls 30% tax-free" as the conclusion. Write a classification paragraph:</p>
+
+  <div class="warning">
+    The proposed rollover should first be classified by the tax status of the buyer-side vehicle receiving Founder's retained equity. If Founder contributes property to an LLC taxed as a partnership in exchange for a partnership interest, section 721 is the likely starting point, subject to disguised-sale, liability-shift, and distribution analysis. If Founder contributes property to a corporation in exchange for stock, section 351 is the likely starting point, subject to control, boot, liability, and related reorganization questions. If a pre-closing recapitalization or Type F reorganization is used, section 368 and the applicable regulations should be analyzed before treating the later sale and rollover steps as settled.
+  </div>
+
+  <h2>Five Questions Before You Draft</h2>
+  <ol>
+    <li><strong>Recipient:</strong> Is rollover equity issued by an LLC taxed as a partnership, a corporation, or an entity whose classification is changing?</li>
+    <li><strong>Property:</strong> Is Founder contributing target stock, LLC interests, partnership interests, real estate, operating assets, or cash?</li>
+    <li><strong>Consideration:</strong> Is Founder receiving only equity, or also cash, notes, preferred rights, guarantees, or other property?</li>
+    <li><strong>Liabilities:</strong> Are debt or guarantees shifting as part of the rollover?</li>
+    <li><strong>Sequencing:</strong> Is there a pre-closing F reorg, recapitalization, conversion, merger, or contribution step?</li>
+  </ol>
+
+  <h2>Practice</h2>
+  <section class="quiz">
+    <p><strong>Scenario:</strong> Founder contributes 30% of her target LLC interests to Buyer Holdco LLC, which is taxed as a partnership, and receives Buyer Holdco units. In the same closing, Buyer pays Founder cash for the remaining 70%. The draft memo says, "The rollover should be tax-free under section 351."</p>
+    <button type="button" data-answer="bad">Leave section 351 as the lead authority</button>
+    <button type="button" data-answer="good">Change the lead bucket to section 721 and flag sale/disguised-sale issues</button>
+    <button type="button" data-answer="bad">Analyze only Type F reorganization rules</button>
+    <div id="feedback" class="answer">Choose the best memo edit.</div>
+  </section>
+
+  <h2>Model Answer</h2>
+  <p>A better first-pass memo edit would say:</p>
+  <div class="callout">
+    Because the rollover equity is issued by an LLC taxed as a partnership, the rollover should be analyzed first under section 721 rather than section 351. The memo should separately analyze the taxable cash sale of the 70% interest and should flag whether the cash sale, rollover contribution, liability shifts, or related distributions create disguised-sale or other recognition concerns under Subchapter K.
+  </div>
+
+  <footer>
+    Reference sheet: <a href="../reference/0002-rollover-memo-triage.html">Rollover Memo Triage</a>. Ask Codex for a second practice fact pattern when you want to test the distinction between section 721, section 351, and Type F reorg framing.
+  </footer>
+</main>
+<script>
+  const feedback = document.querySelector('#feedback');
+  document.querySelectorAll('button[data-answer]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button.dataset.answer === 'good') {
+        feedback.innerHTML = '<span class="good">Correct.</span> The receiving vehicle is an LLC taxed as a partnership, so section 721 is the better first bucket. The cash sale and related steps still need separate scrutiny.';
+      } else {
+        feedback.innerHTML = '<span class="bad">Not the best memo edit.</span> Section 351 is corporate, and Type F is a corporate reorganization concept. Start with the tax classification of the rollover recipient.';
+      }
+    });
+  });
+</script>
+</body>
+</html>
