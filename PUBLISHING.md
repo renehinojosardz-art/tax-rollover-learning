@@ -40,3 +40,4 @@ http://127.0.0.1:8765/
 - Make `index.html` the entry point.
 - Do not publish client names, deal names, transaction documents, or fact patterns based on confidential matters unless the site is access-controlled and approved for that use.
 - If examples are based on real matters, anonymize aggressively and keep the site private.
+- Keep personal answer logs in `private/`, which is ignored by git and should not be published to GitHub Pages.
